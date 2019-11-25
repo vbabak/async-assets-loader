@@ -24,12 +24,12 @@ module.exports = (function () {
     for (var i = 0; i < paths.length; i++) {
       var path = paths[i];
       this.validatePath(path);
-      var onload = (function () {
-        this.loaded_paths[path] = true;
+      var onload = (function (path) {
+        this.loaded_paths[path.uri] = true;
         if (typeof callback === "function" && _checkLoaded.call(this, paths)) {
           callback();
         }
-      }).bind(this);
+      }).bind(this, path);
       _loadOne.call(this, path, onload, reload);
     }
   };
@@ -47,7 +47,6 @@ module.exports = (function () {
 
     this.loaded_paths[path.uri] = false;
 
-    var path_file_no_hash = path.uri.replace(/[?#]+(\w.+)$/g, '');
     if (path.type === 'script') {
       var script = document.createElement('script');
       script.async = true;
@@ -65,7 +64,7 @@ module.exports = (function () {
       this.loaded_tags[path.uri] = link;
     } else if (path.type === 'img') {
       var img = document.createElement("img");
-      img.onload = this.onload();
+      img.onload = onload;
       if (typeof img.decoding !== "undefined") img.decoding = "async";
       img.src = path.uri;
       this.loaded_tags[path.uri] = img;

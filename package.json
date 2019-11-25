@@ -4,7 +4,7 @@
   "description": "async-assets-loader loads assets asynchronously (js files, css styles, images) and triggers a callback after all is loaded",
   "main": "dist/async-assets-loader.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "webpack && karma start karma.conf.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/vbabak/async-assets-loader#readme",
   "devDependencies": {
+    "jasmine-core": "^3.5.0",
     "karma": "^4.4.1",
     "karma-chrome-launcher": "^3.1.0",
     "karma-jasmine": "^2.0.1",

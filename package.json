@@ -1,0 +1,26 @@
+{
+  "name": "async-assets-loader",
+  "version": "0.0.1",
+  "description": "async-assets-loader loads assets asynchronously (js files, css styles, images) and triggers a callback after all is loaded",
+  "main": "dist/async-assets-loader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/vbabak/async-assets-loader.git"
+  },
+  "keywords": [
+    "async",
+    "assets",
+    "loader",
+    "javascript",
+    "callback"
+  ],
+  "author": "Vladyslav Babak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vbabak/async-assets-loader/issues"
+  },
+  "homepage": "https://github.com/vbabak/async-assets-loader#readme"
+}

@@ -1,0 +1,1 @@
+global.document = {head: null};

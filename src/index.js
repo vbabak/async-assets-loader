@@ -1,4 +1,4 @@
-exports = (function () {
+module.exports = (function () {
 
   var asyncAssetsLoader = function () {
     this.loaded_paths = {};

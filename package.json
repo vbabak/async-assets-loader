@@ -24,6 +24,9 @@
   },
   "homepage": "https://github.com/vbabak/async-assets-loader#readme",
   "devDependencies": {
+    "karma": "^4.4.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-jasmine": "^2.0.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   }

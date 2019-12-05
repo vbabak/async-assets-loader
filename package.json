@@ -1,6 +1,6 @@
 {
   "name": "async-assets-loader",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "async-assets-loader loads assets asynchronously (js files, css styles, images) and triggers a callback after all is loaded",
   "main": "dist/async-assets-loader.js",
   "scripts": {

@@ -18,9 +18,9 @@ var cssfile = "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/mate
 var imgfile = "https://logos.keycdn.com/keycdn-logo-black.png";
 var assetsLoader = new asyncAssetsLoader();
 assetsLoader.load([
-      {uri: jsfile, type: "script"},
-      {uri: cssfile, type: "style"},
-      {uri: imgfile, type: "img"}
+      {url: jsfile, type: "script"},
+      {url: cssfile, type: "style"},
+      {url: imgfile, type: "img"}
     ], function () {
       console.log("Assets are loaded");
       console.log("Img width: " + assetsLoader.getLoadedTags()[imgfile].width);

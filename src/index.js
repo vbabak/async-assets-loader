@@ -3,7 +3,7 @@ module.exports = (function () {
   var asyncAssetsLoader = function () {
     this.loaded_paths = {};
     this.container = document.head || document.body || document.documentElement;
-    this.path_obj_props = ["uri", "type"];
+    this.path_obj_props = ["url", "type"];
     this.path_obj_types = ["style", "script", "img"];
     this.loaded_tags = {};
   };
@@ -25,7 +25,7 @@ module.exports = (function () {
       var path = paths[i];
       this.validatePath(path);
       var onload = (function (path) {
-        this.loaded_paths[path.uri] = true;
+        this.loaded_paths[path.url] = true;
         if (typeof callback === "function" && _checkLoaded.call(this, paths)) {
           callback();
         }
@@ -45,35 +45,35 @@ module.exports = (function () {
       return false;
     }
 
-    this.loaded_paths[path.uri] = false;
+    this.loaded_paths[path.url] = false;
 
     if (path.type === 'script') {
       var script = document.createElement('script');
       script.async = true;
       script.defer = true;
       script.onload = onload;
-      script.src = path.uri;
+      script.src = path.url;
       this.container.appendChild(script);
-      this.loaded_tags[path.uri] = script;
+      this.loaded_tags[path.url] = script;
     } else if (path.type === 'style') {
       var link = document.createElement("link");
       link.rel = "stylesheet";
       link.onload = onload;
-      link.href = path.uri;
+      link.href = path.url;
       this.container.appendChild(link);
-      this.loaded_tags[path.uri] = link;
+      this.loaded_tags[path.url] = link;
     } else if (path.type === 'img') {
       var img = document.createElement("img");
       img.onload = onload;
       if (typeof img.decoding !== "undefined") img.decoding = "async";
-      img.src = path.uri;
-      this.loaded_tags[path.uri] = img;
+      img.src = path.url;
+      this.loaded_tags[path.url] = img;
     }
   };
 
   var _checkLoaded = function (paths) {
     for (var i = 0; i < paths.length; i++) {
-      if (!this.loaded_paths[paths[i].uri]) {
+      if (!this.loaded_paths[paths[i].url]) {
         return false;
       }
     }

@@ -14,12 +14,12 @@ describe('async-assets-loader', () => {
 
   it('should trigger error on wrong type', () => {
     expect(function () {
-      loader.load({uri: jsfile, type: "js"});
+      loader.load({url: jsfile, type: "js"});
     }).toThrowError();
   });
 
   it('should load single asset correctly', (done) => {
-    loader.load({uri: jsfile, type: "script"}, () => {
+    loader.load({url: jsfile, type: "script"}, () => {
       expect(testf).toBeDefined();
       done();
     });
@@ -27,9 +27,9 @@ describe('async-assets-loader', () => {
 
   it('should load multiple assets correctly', (done) => {
     loader.load([
-      {uri: jsfile, type: "script"},
-      {uri: cssfile, type: "style"},
-      {uri: img, type: "img"}
+      {url: jsfile, type: "script"},
+      {url: cssfile, type: "style"},
+      {url: img, type: "img"}
     ], () => {
       expect(testf).toBeDefined();
       expect(getComputedStyle(document.body).color).toBe("rgb(95, 158, 160)");
